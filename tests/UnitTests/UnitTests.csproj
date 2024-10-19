@@ -26,4 +26,8 @@
 		<Using Include="Xunit" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\OptionsPatternValidation.API\OptionsPatternValidation.API.csproj" />
+	</ItemGroup>
+
 </Project>
