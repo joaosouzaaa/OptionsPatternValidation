@@ -1,4 +1,7 @@
-﻿namespace OptionsPatternValidation.API.DependencyInjection;
+﻿using FluentValidation;
+using System.Reflection;
+
+namespace OptionsPatternValidation.API.DependencyInjection;
 
 internal static class DependencyInjectionHandler
 {
@@ -7,7 +10,9 @@ internal static class DependencyInjectionHandler
         services.AddCorsDependencyInjection();
         services.AddSwaggerDependencyInjection();
 
-        services.AddOptionsDependencyInjection(configuration);
+        services.AddValidatorsFromAssembly(Assembly.GetAssembly(typeof(Program)));
+
+        services.AddOptionsDependencyInjection();
         services.AddAuthenticationDependencyInjection(configuration);
         services.AddServicesDependencyInjection();
     }
